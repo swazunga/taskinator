@@ -22,11 +22,6 @@ var createTaskHandler = function (event) {
   listItemEl.appendChild(taskInfoEl);
 
   tasksToDoEl.appendChild(listItemEl);
-
-  //   var listItemEl = document.createElement("li");
-  //   listItemEl.className = "task-item";
-  //   listItemEl.textContent = taskNameInput;
-  //   tasksToDoEl.appendChild(listItemEl);
 };
 
 formEl.addEventListener("submit", createTaskHandler);
