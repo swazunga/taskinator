@@ -194,13 +194,26 @@ var saveTasks = function () {
 var loadTasks = function () {
   tasks = localStorage.getItem("tasks") || [];
   tasks = JSON.parse(tasks);
-  console.log(tasks);
+  // console.log(tasks);
 
   for (i = 0; i < tasks.length; i++) {
     tasks[i].id = taskIdCounter;
     listItemEl = document.createElement("li");
     listItemEl.className = "task-item";
     listItemEl.setAttribute("data-task-id", tasks[i].id);
+    taskInfoEl = document.createElement("div");
+    taskInfoEl.className = "task-info";
+    taskInfoEl.innerHTML =
+      "<h3 class='task-name'>" +
+      tasks[i].name +
+      "</h3><span class='task-type'>" +
+      tasks[i].type +
+      "</span>";
+    listItemEl.appendChild(taskInfoEl);
+    taskActionsEl = function () {
+      createTaskActions(tasks[i].id);
+    };
+    listItemEl.appendChild(taskActionsEl);
     console.log(listItemEl);
   }
 };
