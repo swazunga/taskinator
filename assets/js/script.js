@@ -213,7 +213,23 @@ var loadTasks = function () {
     taskActionsEl = function () {
       createTaskActions(tasks[i].id);
     };
-    listItemEl.appendChild(taskActionsEl);
+    listItemEl.append(taskActionsEl);
+    if (tasks[i].status === "to do") {
+      listItemEl.querySelector("select[name='status-change']").selectedIndex ===
+        "0";
+
+      tasksToDoEl.append(listItemEl);
+    } else if (tasks[i].status === "in progress") {
+      listItemEl.querySelector(
+        "select[name='status-change']"
+      ).selectedIndex = 1;
+      tasksInProgressEl.appendChild(listItemEl);
+    } else if ((tasks[i].status = "complete")) {
+      listItemEl.querySelector(
+        "select[name='status-change']"
+      ).selectedIndex = 2;
+      tasksCompletedEl.appendChild(listItemEl);
+    }
     console.log(listItemEl);
   }
 };
