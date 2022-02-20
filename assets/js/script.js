@@ -197,8 +197,11 @@ var loadTasks = function () {
   console.log(tasks);
 
   for (i = 0; i < tasks.length; i++) {
-    task[i].id = taskIdCounter;
-    console.log(tasks[i]);
+    tasks[i].id = taskIdCounter;
+    listItemEl = document.createElement("li");
+    listItemEl.className = "task-item";
+    listItemEl.setAttribute("data-task-id", tasks[i].id);
+    console.log(listItemEl);
   }
 };
 
