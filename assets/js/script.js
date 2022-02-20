@@ -215,16 +215,16 @@ var loadTasks = function () {
     };
     listItemEl.append(taskActionsEl);
     if (tasks[i].status === "to do") {
-      listItemEl.querySelector("select[name='status-change']").selectedIndex ===
-        "0";
-
+      listItemEl.querySelector(
+        "select[name='status-change']"
+      ).selectedIndex = 0;
       tasksToDoEl.append(listItemEl);
     } else if (tasks[i].status === "in progress") {
       listItemEl.querySelector(
         "select[name='status-change']"
       ).selectedIndex = 1;
       tasksInProgressEl.appendChild(listItemEl);
-    } else if ((tasks[i].status = "complete")) {
+    } else if (tasks[i].status === "complete") {
       listItemEl.querySelector(
         "select[name='status-change']"
       ).selectedIndex = 2;
