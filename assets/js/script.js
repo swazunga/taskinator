@@ -192,8 +192,14 @@ var saveTasks = function () {
 };
 
 var loadTasks = function () {
-  tasks = localStorage.getItem("tasks");
+  tasks = localStorage.getItem("tasks") || [];
+  tasks = JSON.parse(tasks);
   console.log(tasks);
+
+  for (i = 0; i < tasks.length; i++) {
+    task[i].id = taskIdCounter;
+    console.log(tasks[i]);
+  }
 };
 
 pageContentEl.addEventListener("change", taskStatusChangeHandler);
